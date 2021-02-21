@@ -1,0 +1,131 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 2,
+    "passes": 1,
+    "pending": 0,
+    "failures": 1,
+    "start": "2021-02-21T07:50:22.767Z",
+    "end": "2021-02-21T07:50:38.478Z",
+    "duration": 15711,
+    "testsRegistered": 2,
+    "passPercent": 50,
+    "pendingPercent": 0,
+    "other": 1,
+    "hasOther": true,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "94d9c47f-12c5-4d8c-89b7-6e863e54437a",
+      "title": "",
+      "fullFile": "cypress\\integration\\conduit-tests\\create-post2.spec.js",
+      "file": "cypress\\integration\\conduit-tests\\create-post2.spec.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "8d48154b-e82d-4c79-8922-32f8b9af8491",
+          "title": "Conduit App - New Post",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "should allow creating new post",
+              "fullTitle": "Conduit App - New Post should allow creating new post",
+              "timedOut": null,
+              "duration": 10415,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "// using alias and children\ncy.get('ul.navbar-nav').children().as('subMenus');\ncy.get('@subMenus').contains('New Post').click(); //using first, eq-index, last\ncy.get('form').within(function ($form) {\n  cy.get('input').first().type('Sample Title Text');\n  cy.get('input').eq(1).type('Article About Automation');\n  cy.get('textarea').eq(0).type('Sample text - Automation Summary');\n  cy.get('input').last().type('Test');\n  cy.contains('Publish Article').click();\n});\ncy.url().should('include', '#/article');\ncy.contains('Edit Article').should('be.visible');",
+              "err": {},
+              "uuid": "2226673b-c015-4dab-8245-4ffa709c265f",
+              "parentUUID": "8d48154b-e82d-4c79-8922-32f8b9af8491",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "should allow mark-unmark favorite post",
+              "fullTitle": "Conduit App - New Post should allow mark-unmark favorite post",
+              "timedOut": null,
+              "duration": 141,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": null,
+              "code": "// using alias and children\ncy.get('ul.navbar-nav').children().as('subMenus');\ncy.get('@subMenus').contains('prime').click();\ncy.contains('My Articles').should('be.visible');\ncy.get('.ion-heart', {\n  multiple: true\n}).first().click();\ncy.contains('Favorited Articles').click();\ncy.url().should('include', '@prime/favorites');\ncy.get('.btn-primary').then(function ($fav) {\n  var favCount = $fav.text();\n  expect(parseInt(favCount)).to.equal(1);\n}).click();\ncy.reload();\ncy.contains('No articles are here... yet.').should('be.visible');\ncy.go('back');",
+              "err": {
+                "message": "AssertionError: object tested must be an array, a map, an object, a set, a string, or a weakset, but undefined given\n\nBecause this error occurred during a `after each` hook we are skipping the remaining tests in the current suite: `Conduit App - New Post`",
+                "estack": "AssertionError: object tested must be an array, a map, an object, a set, a string, or a weakset, but undefined given\n\nBecause this error occurred during a `after each` hook we are skipping the remaining tests in the current suite: `Conduit App - New Post`\n    at Context.eval (https://react-redux.realworld.io/__cypress/tests?p=cypress\\support\\index.js:40:33)",
+                "diff": null
+              },
+              "uuid": "c020b04c-e5fd-45a5-b577-35d2c5a917b2",
+              "parentUUID": "8d48154b-e82d-4c79-8922-32f8b9af8491",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "2226673b-c015-4dab-8245-4ffa709c265f"
+          ],
+          "failures": [
+            "c020b04c-e5fd-45a5-b577-35d2c5a917b2"
+          ],
+          "pending": [],
+          "skipped": [],
+          "duration": 10556,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": true,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "6.2.2"
+    },
+    "marge": {
+      "options": {
+        "id": "default",
+        "reportDir": "cypress/reports/mocha",
+        "quite": true,
+        "overwrite": false,
+        "html": true,
+        "json": true
+      },
+      "version": "5.2.0"
+    }
+  }
+}

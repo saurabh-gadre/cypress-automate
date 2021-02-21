@@ -1,0 +1,111 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 1,
+    "passes": 0,
+    "pending": 0,
+    "failures": 1,
+    "start": "2021-02-21T07:50:46.366Z",
+    "end": "2021-02-21T07:51:02.890Z",
+    "duration": 16524,
+    "testsRegistered": 1,
+    "passPercent": 0,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "3349dc49-f2fb-4eaa-8a38-cf668914e43c",
+      "title": "",
+      "fullFile": "cypress\\integration\\conduit-tests\\login.spec.js",
+      "file": "cypress\\integration\\conduit-tests\\login.spec.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "ffc63243-997e-4928-833c-a234c5c1bd97",
+          "title": "Conduit App - Sign In",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "should allow to sign in",
+              "fullTitle": "Conduit App - Sign In should allow to sign in",
+              "timedOut": null,
+              "duration": 10577,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": null,
+              "code": "cy.visit('http://react-redux.realworld.io/#/login');\ncy.get('input[type=\"email\"]').type('fivak47096@mayhco.com');\ncy.get('input[type=\"password\"]').type('admin123');\ncy.get('.btn-lg').contains('Sign in').should('be.visible').click();\ncy.get('.active').should('be.visible').contains('Your Feed');\ncy.get('a[href=\"#@prime\"]').should('be.visible').contains(\"prime\");",
+              "err": {
+                "message": "AssertionError: Timed out retrying: Expected to find element: `.active`, but never found it.",
+                "estack": "AssertionError: Timed out retrying: Expected to find element: `.active`, but never found it.\n    at Context.eval (http://react-redux.realworld.io/__cypress/tests?p=cypress\\integration\\conduit-tests\\login.spec.js:10:23)",
+                "diff": null
+              },
+              "uuid": "106a4d85-928c-4509-88c6-6243b6d087e0",
+              "parentUUID": "ffc63243-997e-4928-833c-a234c5c1bd97",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [],
+          "failures": [
+            "106a4d85-928c-4509-88c6-6243b6d087e0"
+          ],
+          "pending": [],
+          "skipped": [],
+          "duration": 10577,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": true,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "6.2.2"
+    },
+    "marge": {
+      "options": {
+        "id": "default",
+        "reportDir": "cypress/reports/mocha",
+        "quite": true,
+        "overwrite": false,
+        "html": true,
+        "json": true
+      },
+      "version": "5.2.0"
+    }
+  }
+}

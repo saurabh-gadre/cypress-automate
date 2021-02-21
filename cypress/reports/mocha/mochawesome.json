@@ -1,0 +1,150 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 3,
+    "passes": 2,
+    "pending": 0,
+    "failures": 1,
+    "start": "2021-02-21T07:49:51.236Z",
+    "end": "2021-02-21T07:50:14.421Z",
+    "duration": 23185,
+    "testsRegistered": 3,
+    "passPercent": 66.66666666666666,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "347b3908-7558-4054-9258-09fe89c7f6a0",
+      "title": "",
+      "fullFile": "cypress\\integration\\conduit-tests\\create-post.spec.js",
+      "file": "cypress\\integration\\conduit-tests\\create-post.spec.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "1c25c055-d295-4a8e-8f57-73855461da1d",
+          "title": "Conduit App - New Post",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "should allow to sign in",
+              "fullTitle": "Conduit App - New Post should allow to sign in",
+              "timedOut": null,
+              "duration": 10331,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.visit('https://react-redux.realworld.io/#/login');\ncy.title().should('eql', 'Conduit');\ncy.location('protocol').should('eql', 'https:');\ncy.get('input[type=\"email\"]').type('fivak47096@mayhco.com');\ncy.get('input[type=\"password\"]').type('admin123');\ncy.get('.btn-lg').contains('Sign in').should('be.visible').click();\ncy.contains('Your Feed', {\n  timeout: 10000\n}).should('be.visible');",
+              "err": {},
+              "uuid": "1f55c5e7-81c3-438a-859c-75ae2f352f87",
+              "parentUUID": "1c25c055-d295-4a8e-8f57-73855461da1d",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "should allow creating new post",
+              "fullTitle": "Conduit App - New Post should allow creating new post",
+              "timedOut": null,
+              "duration": 3798,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.contains('New Post').click();\ncy.get('input[placeholder=\"Article Title\"]').type('Sample Title Text');\ncy.get('input[placeholder=\"What\\'s this article about?\"]').type('Article About Automation');\ncy.get('textarea[placeholder=\"Write your article (in markdown)\"]').type('Sample text - Automation Summary');\ncy.get('input[placeholder=\"Enter tags\"]').type('Test');\ncy.contains('Publish Article').click();\ncy.url().should('include', '#/article');\ncy.contains('Edit Article').should('be.visible');",
+              "err": {},
+              "uuid": "35cddcb0-b164-4048-98ff-060584f38bd0",
+              "parentUUID": "1c25c055-d295-4a8e-8f57-73855461da1d",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "should allow mark-unmark favorite post",
+              "fullTitle": "Conduit App - New Post should allow mark-unmark favorite post",
+              "timedOut": null,
+              "duration": 8886,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": null,
+              "code": "cy.get('.nav-link').contains('prime').click();\ncy.contains('My Articles').should('be.visible');\ncy.get('.ion-heart', {\n  multiple: true\n}).first().click();\ncy.contains('Favorited Articles').click();\ncy.url().should('include', '@prime/favorites');\ncy.get('.ion-heart', {\n  multiple: true\n}, {\n  timeout: 5000\n}).first().click();\ncy.reload();\ncy.contains('No articles are here... yet.').should('be.visible');\ncy.go('back');",
+              "err": {
+                "message": "AssertionError: Timed out retrying: Expected to find content: 'No articles are here... yet.' but never did.",
+                "estack": "AssertionError: Timed out retrying: Expected to find content: 'No articles are here... yet.' but never did.\n    at Context.eval (https://react-redux.realworld.io/__cypress/tests?p=cypress\\integration\\conduit-tests\\create-post.spec.js:40:49)",
+                "diff": null
+              },
+              "uuid": "5baf8655-a0ab-441d-a8d8-aa9b08521918",
+              "parentUUID": "1c25c055-d295-4a8e-8f57-73855461da1d",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "1f55c5e7-81c3-438a-859c-75ae2f352f87",
+            "35cddcb0-b164-4048-98ff-060584f38bd0"
+          ],
+          "failures": [
+            "5baf8655-a0ab-441d-a8d8-aa9b08521918"
+          ],
+          "pending": [],
+          "skipped": [],
+          "duration": 23015,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": true,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "6.2.2"
+    },
+    "marge": {
+      "options": {
+        "id": "default",
+        "reportDir": "cypress/reports/mocha",
+        "quite": true,
+        "overwrite": false,
+        "html": true,
+        "json": true
+      },
+      "version": "5.2.0"
+    }
+  }
+}
